@@ -3,7 +3,11 @@ files1 = file1.o file2.o file3.o
 obj_files = $(wildcard *.o)
 OBJDIR = OBJ
 
+#appending prefix OBJ/ to all files in files1 variable
 sub_files = $(foreach file, $(files1), $(OBJDIR)/$(file))
+
+#listing all files ending with .o in OBJ directory
+sub_files1 = $(wildcard $(OBJDIR)/*.o)
 
 # all targets
 all: a b e
@@ -33,4 +37,5 @@ clean:
 
 listobj:
 	@echo obj files = $(obj_files)
-	@echo subfiles = $(sub_files)
+	@echo sub_files = $(sub_files)
+	@echo sub_files1 = $(sub_files1)
